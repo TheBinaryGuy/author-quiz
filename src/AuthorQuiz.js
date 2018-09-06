@@ -24,7 +24,7 @@ function Turn(props) {
   function highlightToBgColor(highlight) {
     const mapping = {
       'none': '#3E3E3E',
-      'correct': 'slateblue',
+      'correct': 'forestgreen',
       'wrong': '#CC3333'
     };
     return mapping[highlight];
