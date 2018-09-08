@@ -68,10 +68,18 @@ main {
 
 footer {
   background-color: #8E03C8;
-  text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+footer p:last-child {
+  padding-right: 1%;
+  margin-left: auto;
+}
+
+footer p:first-child {
+  padding-left: 1%;
 }
 
 a, a:visited, a:active {

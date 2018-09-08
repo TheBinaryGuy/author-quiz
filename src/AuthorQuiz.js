@@ -57,21 +57,24 @@ function Continue() { return null; }
 function Footer() {
   return (
     <footer>
-      <p>All images are from <a href="https://commons.wikimedia.org/wiki/Main_Page">Wikimedia Commons</a> and are in the public domain.</p>
+      <p>2018 &copy; <a href="https://brownwolfstudio.com">Brown Wolf Studio</a></p>
+      <p>Images are from <a href="https://commons.wikimedia.org/wiki/Main_Page">Wikimedia Commons</a></p>
     </footer>
   ); 
 }
 
-function AuthorQuiz(props) {
-  return (
-    <div className="mainContainer">
-      <Hero {...props.scoreData} appName={props.appName} />
-      <Turn {...props.turnData} highlight={props.highlight}
-      onAnswerSelected={props.onAnswerSelected} />
-      <Continue />
-      <Footer />
-    </div>
-  );
+class AuthorQuiz extends React.Component {  
+  render() {
+    return (
+      <div className="mainContainer">
+        <Hero {...this.props.scoreData} appName={this.props.appName} />
+        <Turn {...this.props.turnData} highlight={this.props.highlight}
+        onAnswerSelected={this.props.onAnswerSelected} />
+        <Continue />
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default AuthorQuiz;
