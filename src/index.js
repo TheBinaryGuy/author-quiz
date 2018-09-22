@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import AuthorQuiz from './AuthorQuiz';
+import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { shuffle, sample } from 'underscore';
 
@@ -72,7 +72,7 @@ function onAnswerSelected(answer) {
 }
 
 function render() {
-  ReactDOM.render(<AuthorQuiz {...state} onAnswerSelected={onAnswerSelected} />, document.getElementById('root'));
+  ReactDOM.render(<App {...state} onAnswerSelected={onAnswerSelected} />, document.getElementById('root'));
 }
 
 render();

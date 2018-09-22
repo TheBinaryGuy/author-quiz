@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AuthorQuiz from './AuthorQuiz';
+import App from './App';
 import Enzyme, {mount, shallow, render} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16.3';
 
@@ -24,14 +24,14 @@ const state = {
 describe("Author Quiz", () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<AuthorQuiz {...state} onAnswerSelected={()=>{}} />, div);
+    ReactDOM.render(<App {...state} onAnswerSelected={()=>{}} />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   describe("When no answer has been selected", () => {
     let wrapper;
     beforeAll(() => {
-      wrapper = mount(<AuthorQuiz {...state} onAnswerSelected={()=>{}} />);
+      wrapper = mount(<App {...state} onAnswerSelected={()=>{}} />);
     })
     it("should have no bg color", () => {
       expect(wrapper.find("main").props().style.backgroundColor).toBe("#3E3E3E");
@@ -41,7 +41,7 @@ describe("Author Quiz", () => {
   describe("When wrong answer has been selected", () => {
     let wrapper;
     beforeAll(() => {
-      wrapper = mount(<AuthorQuiz {...Object.assign({}, state, {highlight: 'wrong'})} onAnswerSelected={()=>{}} />);
+      wrapper = mount(<App {...Object.assign({}, state, {highlight: 'wrong'})} onAnswerSelected={()=>{}} />);
     })
     it("should have #CC3333 bg color", () => {
       expect(wrapper.find("main").props().style.backgroundColor).toBe("#CC3333");
@@ -51,7 +51,7 @@ describe("Author Quiz", () => {
   describe("When right answer has been selected", () => {
     let wrapper;
     beforeAll(() => {
-      wrapper = mount(<AuthorQuiz {...Object.assign({}, state, {highlight: 'correct'})} onAnswerSelected={()=>{}} />);
+      wrapper = mount(<App {...Object.assign({}, state, {highlight: 'correct'})} onAnswerSelected={()=>{}} />);
     })
     it("should have slateblue bg color", () => {
       expect(wrapper.find("main").props().style.backgroundColor).toBe("slateblue");
@@ -63,7 +63,7 @@ describe("Author Quiz", () => {
   //   const handleAnswerSelected = jest.fn();
 
   //   beforeAll(() => {
-  //     wrapper = mount(<AuthorQuiz {...state} onAnswerSelected={handleAnswerSelected} />);
+  //     wrapper = mount(<App {...state} onAnswerSelected={handleAnswerSelected} />);
   //     wrapper.find('.opts').first().simulate('click');
   //   });
 
